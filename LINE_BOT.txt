@@ -1,0 +1,696 @@
+function doPost(e) {
+  var replyToken= JSON.parse(e.postData.contents).events[0].replyToken;
+  if (typeof replyToken === 'undefined') {
+    return;
+  }
+
+  var url = 'https://api.line.me/v2/bot/message/reply';
+  var channelToken = 'Mg/fvhCbtsMDhVDO/vjE1EXTht7LVrx/jCeJtHpyk/zvfIlyFv8RRo5qcxxZJj8tmYXYP8mD1t2L9TZsY0MLUjM6TrCG7TRFy7lgUejwd6l3rs7nJdYQAgbFaB+4In9fB+mcEZG4thk6Bruay/HbegdB04t89/1O/w1cDnyilFU=';
+
+//  ここから返信用
+  var input = JSON.parse(e.postData.contents).events[0].message;
+
+  var message = "【もしもボックス】\n｢もしも〇〇だったら｣と電話で言うと、それが実現しているパラレルワールドへ移動することが出来る。";
+  
+  
+  if(input.type == 'text') {
+    if(input.text.match('ドラえもん|ドラえもーん|ドラちゃん')) {
+      message = "ぼく、ドラえもんです。";
+    }
+  }
+    
+  if(input.type == 'text') {
+    if(input.text.match('本当に|ホントに|ほんとに')) {
+      message = "ドラ、ぼくえもんです。";
+    }
+  }
+  
+  if(input.type == 'text') {
+    if(input.text.match('スガイディノス|スガイ|ディノス')) {
+      message = "【スガイディノス】\nhttps://www.sugai-dinos.jp/";
+    }
+  }
+    
+  if(input.type == 'text') {
+    if(input.text.match('映画')) {
+      message = "【ディノスシネマズ】\nhttps://www.sugai-dinos.jp/cinema/";
+    }
+  }
+    
+  if(input.type == 'text') {
+    if(input.text.match('サツゲキ')) {
+      message = "【サツゲキ】\nhttps://www.sugai-dinos.jp/cinema/sapporo/";
+    }
+  }
+    
+  if(input.type == 'text') {
+    if(input.text.match('ゲームセンター|ゲーセン|クレーンゲーム|UFOキャッチャー|メダル')) {
+      message = "【ディノスパーク】\nhttps://www.sugai-dinos.jp/park/";
+    }
+  }
+    
+  if(input.type == 'text') {
+    if(input.text.match('ボウリング')) {
+      message = "【ディノスボウル】\nhttps://www.sugai-dinos.jp/bowling/";
+    }
+  }
+    
+  if(input.type == 'text') {
+    if(input.text.match('ゴルフ|GOLF|Golf|golf|ダーツ')) {
+      message = "【THE GOLF BAR ナイスショット】\nhttps://www.sugai-dinos.jp/sports/";
+    }
+  }
+    
+  if(input.type == 'text') {
+    if(input.text.match('どら焼き|ドラ焼き|どらやき')) {
+      message = "【文明堂】\nhttps://www.bunmeido.co.jp/";
+    }
+  }
+  
+  if(input.type == 'text') {
+    if(input.text.match('課金')) {
+      message = "【GBAクレド】\n3,000円払えば無料で10連が引ける。";
+    }
+  }
+  
+  if(input.type == 'text') {
+    if(input.text.match('闇落')) {
+      message = "【GBAクレド】\n闇に飲まれよ！";
+    }
+  }
+  
+  if(input.type == 'text') {
+    if(input.text.match('不幸になりたい|ふこうになりたい')) {
+      message = "【悪魔のイジワール】\n飲むと様々な不幸に見舞われる。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('許して|ゆるして')) {
+      message = "【悪魔のパスポート】\n持っていればどんな悪事も許される。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('美味しく|おいしく|味覚を感じない')) {
+      message = "【味のもとのもと】\nどんな料理でもおいしくなる調味料。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('冒険がしたい|ぼうけんがしたい')) {
+      message = "【アドベン茶】\n飲むと壮大な冒険をすることになる。絶対安全保障付き。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('予定通りに')) {
+      message = "【あらかじめ日記】\n書いたことが全て現実になる日記。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('結婚生活がつら|結婚生活が辛|離婚したい')) {
+      message = "【ありがたみわかり機】\n指定したもののありがたみを知ることができる。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('一夜漬け|覚えたい|憶えたい|おぼえたい')) {
+      message = "【アンキパン】\n項目を写して食べると、その項目を暗記できる。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('１人になりたい|ひとりになりたい|1人になりたい|一人になりたい')) {
+      message = "【石ころぼうし】\nかぶると誰からも存在を認識されなくなる。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('ぬいぐるみと友達になりたい|ぬいぐるみとともだちになりたい')) {
+      message = "【生命のネジ】\nぬいぐるみ等の無機物に使うと、生命体となる。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('入れ替わりたい|入れ代わりたい|入れ変わりたい|入れかわりたい|いれかわりたい')) {
+      message = "【入れかえロープ】\n左右に玉がついたロープ。二人がそれぞれの玉を持つと精神が入れ替わる";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('ミニチュアを作りたい')) {
+      message = "【インスタントミニチュア製造カメラ】\nこのカメラで建物や電柱、木を撮ると、下が開いてミニチュアとして出てくる";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('ずっとドラえもんと一緒に居たい|ずっとドラえもんと一緒にいたい')) {
+      message = "【ウソ800】\n飲むと口に出した事柄が、すべて嘘になる。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('知りたい|しりたい|教えてほしい|おしえてほしい|調べたい|しらべたい')) {
+      message = "【宇宙完全大百科端末器】\n調べたいものを百科型PCに入力すると、宇宙空間のデータベースからデータが送られてくる。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('他の星に行ってみたい|ほかのほしにいってみたい|他の星に行きたい|ほかのほしにいきたい')) {
+      message = "【宇宙救命ボート】\n人間が住める星へ連れて行ってくれる。探査機に異界惑星の物質を入れるとそこへ向かうこともできる。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('フュージョン|合成したい|ごうせいしたい')) {
+      message = "【ウルトラミキサー】\n二つの物を一つに合成する道具。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('エスパーになりたい|瞬間移動したい|しゅんかんいどうしたい|透視したい|とうししたい|覗きたい|のぞきたい')) {
+      message = "【エスパーぼうし】\nマジックハンドがついた帽子。被るとサイコキネシス、透視、テレポートが使えるようになる。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('絵本の世界に行きたい|えほんのせかいにいきたい')) {
+      message = "【絵本入りこみぐつ】\n絵本の世界に入ることが出来る靴。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('びょうきをなおし|コロナをなおしたい|治し')) {
+      message = "【お医者さんカバン】\n病気や怪我を治療することが出来る。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('会員制の')) {
+      message = "【オールマイティパス】\n金庫や会員制の店、ホワイトハウスだろうと見せるだけで入ることができるパスポート。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('便秘を')) {
+      message = "【お尻印のきびだんご】\n対象に食べさせるとお通じが良くなる。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('天気になってほしい|晴れてほしい|はれてほしい|雨が降ってほしい|あめがふってほしい')) {
+      message = "【お天気ボックス】\n天気カードをセットすると、その天気になる。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('温泉に入りたい|おんせんにはいりたい')) {
+      message = "【温泉ロープ】\n輪になっているロープ。置けば道路だろうが自室だろうがロープの中が温泉になる。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('新しいものと交換したい|あたらしいものとこうかんしたい')) {
+      message = "【きこりの泉】\n泉に落としたものを女神ロボットが新しいものと変えてくれる。その際、嘘をつくともらえない。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('洋服屋さんになりたい|ようふくやさんになりたい|服のデザイナーになりたい')) {
+      message = "【きせかえカメラ】\nデザインされた服をインプットして映すと、一瞬でその服に着替えることが出来る。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('四季を感じたい')) {
+      message = "【季節カンヅメ】\n春夏秋冬の機能が内包された缶。缶ジュースのようにプルタブを開けることで、その季節を8時間だけ体感できる。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('キャンプしたい')) {
+      message = "【キャンピングカプセル】\nキャンプする時に地面に刺すと、大きくなってその中に住めるようになる。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('銀河を破壊したい|もっとネズミを撲滅したい|もっとねずみを撲滅したい|もっと鼠を撲滅したい')) {
+      message = "【銀河はかいばくだん】\n地球破壊爆弾の完全上位互換。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('バン')) {
+      message = "【空気ピストル】\n人差し指につけ、｢バン!｣というと、高圧の空気弾が発射される。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('ドカン')) {
+      message = "【空気砲】\n空気ピストルの大砲版。腕にはめて｢ドカン!｣というと、空気弾が発射される。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('お腹がすい|おなかがすい|お腹すい|おなかすい|食べたい|たべたい')) {
+      message = "【グルメテーブルかけ】\n食べ物を注文すると、その食べ物が出てくる。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('苦労したい|苦労を買いたい')) {
+      message = "【くろうみそ】\nなめるとその分だけ苦労に見舞われる。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('狼になりたい|おおかみになりたい')) {
+      message = "【月光灯】\n光を浴びると、狼男(人狼)になってしまう。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('１人でケンカを|ひとりでけんかを|一人でケンカを|一人でけんかを|一人で喧嘩を|１人でけんかを|１人で喧嘩を|1人でケンカを|1人でけんかを|1人で喧嘩を')) {
+      message = "【けんかてぶくろ】\nはめると自分自身と喧嘩できる。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('自分がもう一人欲しい|人手が足りない')) {
+      message = "【コピーロボット】\nボタンを押すと、押した人物に変身するロボット。｢パーマン｣にも登場する。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('ころばしたい|転ばしたい|ころばせたい|転ばせたい')) {
+      message = "【ころばし屋】\n10円入れて指定した相手を必ず3回転ばせる。取り消すには100円必要。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('テストで100点を取りたい|テストで100点をとりたい|テストで百点を取りたい|テストで百点をとりたい|テストで１００点を取りたい|テストで１００点をとりたい')) {
+      message = "【コンピューターペンシル】\n自動的に正しい解答を導き出す道具。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('液体になりたい|気体になりたい|空気になりたい')) {
+      message = "【サンタイン】\n一粒飲むと液体に変身し、二粒飲むと気体に変身する";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('不死身になりたい|ふじみになりたい')) {
+      message = "【ジークフリート】\n30分間だけ不死身になれる入浴剤。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('掘削が辛い|掘削がつらい')) {
+      message = "【ジェットモグラ】\n掘削ポイントで起動させると強力な力で掘削してくれる。出力調整が可能。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('バカになりたい|ばかになりたい|馬鹿になりたい|バカになって|ばかになって|馬鹿になって')) {
+      message = "【時限バカ弾】\n爆発すると、付けられた人物が馬鹿なことをしてしまう。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('時間が足りない')) {
+      message = "【時門】\n締めると時の流れを緩やかにし、完全に締めると時間が止まる。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('農作業がしたい|農業がしたい')) {
+      message = "【趣味の日曜農業セット】\n丸めて収納できる田んぼに太陽灯、稲がセットで付いている。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('熊が怖い|くまがこわい')) {
+      message = "【ショックガン】\n生物を傷付けることはないが、ショックを与えて気絶させることが出来る武器。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('ピッチが上手くなりたい|GGAで|ピッチを上手く|上手くピッチ')) {
+      message = "【ジーンマイク】\nどんな発言でも感動的に聞こえるマイク。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('深海に')) {
+      message = "【深海クリーム】\nどんなに深い場所に潜っても、その水圧に耐えられる。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('水の中|みずのなか|海の中|うみのなか')) {
+      message = "【水中酸素飴】\n食べていると、水中から酸素を取り出して水中での呼吸を可能とする。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('バギーちゃんに会いたい|バギーちゃんにあいたい')) {
+      message = "【水中バギー】\n時速800kmのスピードを弾きだす水陸両用のバギー。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('苦手を克服したい|苦手なことを克服したい')) {
+      message = "【スパルタ式にが手こくふく錠】\n飲むと苦手なものがより怖くなり、逆療法で無理に慣らしていくための薬。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('ドラえもんになりたい|ドラえもんぽくなりたい|ひみつ道具が使いたい|ひみつどうぐがつかいたい')) {
+      message = "【スペアポケット】\nドラえもんのポケットの予備。行方不明のドラえもんの元へ移動する為の手段になっていることが多い。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('小さくなりたい|ちいさくなりたい|小さくしたい|ちいさくしたい')) {
+      message = "【スモールライト】\n光を浴びると、小さくなる。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('精霊を呼び出したい|召喚したい|召喚士になり')) {
+      message = "【精霊よびだしうでわ】\n炎や雪のそばで使うとそれにちなんだ精霊を呼び出せる";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('こたつから出たくない|こたつからでたくない')) {
+      message = "【全自動こたつ】\nこたつに入った状態で呟くとこたつが動いてくれる。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('フー子と')) {
+      message = "【台風のたまご】\n生きた台風が入っている卵。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('過去が見|未来が見|未来の自分が見|未来の自分を見|過去の自分を見|過去の自分が見')) {
+      message = "【タイムテレビ】\n過去や未来のあらゆる場所の映像を見ることができるテレビ。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('壊れた|こわれた|直し')) {
+      message = "【タイムふろしき】\n包んだ物の時間を進めたり戻したり出来る風呂敷。その気になれば死者蘇生さえ可能。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('空を飛びたい|そらをとびたい|そらを飛びたい|空をとびたい')) {
+      message = "【タケコプター】\nおなじみ、頭などにつけて空を飛ぶ道具。初期の名前はヘリトンボだった。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('探したい|さがしたい')) {
+      message = "【たずね人ステッキ】\n倒れると、自分が会いたい人がどこにいるかを指し示すステッキ。ただし的中率は70%。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('時間を止めたい|じかんをとめたい|時を止めたい|ときをとめたい')) {
+      message = "【タンマウォッチ】\n押すと、自分以外の時間が止まるストップウォッチ。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('地球を破壊したい|ネズミを撲滅したい|ねずみを撲滅したい|鼠を撲滅したい')) {
+      message = "【地球はかいばくだん】\n文字通りの爆弾。ねずみ撲滅のためにドラえもんが使おうとした。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('約束を守りたい|やくそくをまもりたい|約束を守ってほしい|やくそくをまもってほしい')) {
+      message = "【強いイシ】\nこの石に誓ったことを破ろうとすると攻撃される。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('適応したい')) {
+      message = "【テキオー灯】\n光を浴びると、24時間どんな場所でも活動出来るようになる。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('素早さを上げたい')) {
+      message = "【デンコーセッカ】\n飲むと素早く動けるようになる薬。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('動物の能力が欲しい|動物になりたい|どうぶつになりたい')) {
+      message = "【動物ごっこ帽子】\n動物を模した帽子。装着すると動物の持っている能力が備わる";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('透明になりたい|とうめいになりたい|透明人間|とうめいにんげん')) {
+      message = "【透明マント】\nかぶると透明になる。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('壁を通り抜けたい|壁を通りぬけたい')) {
+      message = "【通りぬけフープ】\n壁にくっ付けるとそこに穴ができる。外すと元の壁に戻る。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('を消したい|をけしたい|死ねばいいのに|しねばいいのに')) {
+      message = "【どくさいスイッチ】\n気に入らない人物を消し去ることが出来る。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('いきたい|行きたい|りょこう|旅行|たび')) {
+      message = "【どこでもドア】\nドアを開くだけでどんな場所にも移動することが出来る。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('どこか|何処か')) {
+      message = "【どこだかドア】\nどこだか分からない場所に通じてしまうドア。";
+    }
+  }
+  
+  if(input.type == 'text') {
+    if(input.text.match('過去に行きたい|かこにいきたい|未来に行きたい|みらいにいきたい|昔に行きたい|むかしにいきたい')) {
+      message = "【タイムマシン】\nドラえもんやドラミが愛用している時空跳躍マシン。ドラえもんが所有するマシンは安物。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('忘れ物を取|わすれものをと')) {
+      message = "【とりよせバッグ】\n手に入れたいものを思い浮かべて手を突っ込むと、それを掴んで取り寄せることができる。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('困っ|こまっ|助けて|たすけて')) {
+      message = "【なんとかばち】\n困ったときになんとかしてくれる蜂。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('仕事を早く終わらせたい')) {
+      message = "【ノーリツチャッチャカ錠】\n飲むと作業を素早く行うことができる。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('呪いたい|のろいたい')) {
+      message = "【のろいのカメラ】\n被写体となった人間の人形が出てくるので、それをいたぶると被写体となった人物も同じ目に遭う。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('倍にしたい')) {
+      message = "【バイバイン】\n一滴たらすだけで、そのものが5分ごとに倍の数になる。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('発明したい|はつめいしたい|発明家にな|はつめいかにな')) {
+      message = "【ハツメイカー】\n欲しい道具を言うと要望に応じた道具を開発する為の設計図を出してくれる。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('鍵を忘れた|かぎをわすれた|鍵を開けたい|かぎをあけたい')) {
+      message = "【万能オープナー開けゴマ】\nあらゆる施錠されたドアや物体を開けることが出来る。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('鳥になりたい|とりになりたい')) {
+      message = "【バードキャップ】\n被ると両手をバタバタさせることで鳥のように飛行することが出来る。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('ゲームの世界に|ゲームのせかいに|ゲームに入りたい|ゲームにはいりたい|勇者になりたい|ゆうしゃになりたい')) {
+      message = "【ヒーローマシン】\nゲームの世界に入り、ゲームの主人公になれる。フィールドがオープン状態になると、ゲームの外へ出ることが可能。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('巨大化したい|大きくなりたい|おおきくなりたい|ビッグになりたい')) {
+      message = "【ビッグライト】\n光を浴びると、ものが巨大化する。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('回避したい|かわしたい|跳ね返したい|はねかえしたい|よけたい')) {
+      message = "【ひらりマント】\nあらゆる攻撃を回避したり跳ね返すことが出来る。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('お城を建てたい|おしろをたてたい|お城が欲しい|おしろがほしい')) {
+      message = "【風雲ドラえもん城】\n日本の城を思わせる巨大な城。バリアが搭載されている";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('増やしたい|ふやしたい')) {
+      message = "【フエルミラー】\n対象を映して起動すると無限に増やすことができる。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('平和にしたい|戦争をなくし|争いをなくし|へいわになって|へいわにしたい|平和になって|せんそうをなくし|あらそいをなくし')) {
+      message = "【平和アナテナ】\nどんな争いごとも丸くおさめる。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('ペットが欲しい|ペットがほしい')) {
+      message = "【ペットペン】\n描いた絵がペットになる。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('変身したい|へんしんしたい|仮面ライダー|ウルトラマン')) {
+      message = "【変身ドリンク】\nこれを飲んだ後になりたい姿をイメージすると、その姿に変身できる";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('国を変えたい|くにをかえたい|総理大臣になりたい|そうりだいじんになりたい')) {
+      message = "【ポータブル国会】\n新しい法律を作れる。ただし余りにも個人限定の法律を作りすぎると自爆する。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('英語を|えいごを|外国語を|がいこくごを|中国語を|ちゅうごくごを|韓国語を|かんこくごを')) {
+      message = "【ほんやくコンニャク】\n食べると異国、異星の言葉を翻訳できる。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('子供に元気に育ってほしい')) {
+      message = "【まもり紙】\n拝んだ人物を守ってくれる紙。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('選べない|えらべない|優柔不断')) {
+      message = "【ミチビキエンゼル】\n天使の姿をしたパペット。手にはめると使用者が得をする方法を教えてくれるが、お節介な上に周囲の人々の迷惑を考えない。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('トレーニングが長続きしない|鍛えたい')) {
+      message = "【ムリヤリトレパン】\n履くと走らざるを得ない状況に見舞われるトレパン。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('敵に囲まれてヤバイ|敵に囲まれてやばい')) {
+      message = "【名刀「電光丸」】\n敵を自動で切り倒す武器。秘剣電光丸とも。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('恐竜に襲|きょうりゅうにお')) {
+      message = "【桃太郎印のきびだんご】\n食べた動物を家来に出来る。どんな猛獣でもおとなしくなる。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('セキュリティを高めたい')) {
+      message = "【ルームガード・セット】\n自分の部屋に侵入者が入らないようにするためにセットするセキュリティ装置のセット。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('賄賂')) {
+      message = "【Yロウ】\nこれを相手に渡すとどんなわがままも聞いてもらえるY字型のロウソク。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('起業|プログラミングを|上手にコードを|コーディングが上手く|仲間を作')) {
+      message = "【G's ACADEMY】\nプログラミングでセカイを変える。授業料後払いのエンジニア起業家養成スクール。\nhttps://www.dhw.co.jp/gs-academy/";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('仲良くなりたい|なかよくなりたい')) {
+      message = "【あいあいパラソル】\nこの傘で相合い傘を5分間すると、右手側（向かって左側）の人が左側の人を熱烈に好きになります。";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('プロダクト')) {
+      message = "【物を作るというのは、その人の個性を100パーセント発揮させないとうまくいかないんです（藤子・F・不二雄）】\n";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('ドラえもんに会いたい|ドラえもんにあいたい')) {
+      message = "【藤子・Ｆ・ミュージアム】\nhttp://fujiko-museum.com/";
+    }
+  }
+
+  if(input.type == 'text') {
+    if(input.text.match('死にたい|しにたい|悪いことをしたい|わるいことをしたい|殺したい|ころしたい|薬をやりたい|ヤクをやりたい|麻薬')) {
+      message = "ダメ。ゼッタイ。";
+    }
+  }
+
+
+  var messages = [{
+    'type': 'text',
+    'text': message,
+  }];
+//  ここまで返信用
+//  下に書いているものが優先（上書き）される
+
+  UrlFetchApp.fetch(url, {
+    'headers': {
+      'Content-Type': 'application/json; charset=UTF-8',
+      'Authorization': 'Bearer ' + channelToken,
+    },
+    'method': 'post',
+    'payload': JSON.stringify({
+      'replyToken': replyToken,
+      'messages': messages,
+    }),
+  });
+  return ContentService.createTextOutput(JSON.stringify({'content': 'post ok'})).setMimeType(ContentService.MimeType.JSON);
+}
